@@ -1,4 +1,4 @@
 # Welcome to VmeanSETH-kH's web pages
 
-## Title: **`the-tittle`**
+## Title: **`Flask & Django Tutorials`**
 ## Author: [**THORNG Vimeanseth**](https://vimeanseththorng.github.io/)
