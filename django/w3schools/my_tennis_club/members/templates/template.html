@@ -1,0 +1,67 @@
+ <!-- variable -->
+<!-- {% with firstname="Tobias" %}
+<h1>Hello {{ firstname }}, how are you?</h1>
+{% endwith %} -->
+
+ <!-- for -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<ul>
+  {% for x in mymembers %}
+    <li>{{ x.firstname }}</li>
+  {% endfor %}
+</ul>
+
+<p>In views.py you can see how to import and fetch members from the database.</p>
+
+</body>
+</html>                   -->
+
+<!-- if-else-elif -->
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% if greeting == 1 and day == "Friday" %}
+  <h1>Hello Weekend!</h1>
+{% endif %}  
+
+<p>In views.py you can see what the variables look like.</p>
+
+</body>
+</html>        -->
+
+<!-- include -->
+<!-- <h1>Hello</h1>
+
+<p>This page contains a footer in a template.</p>
+
+{% include 'footer.html' %}  -->
+
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+{% include "mymenu.html" with me="TOBIAS" sponsor="W3SCHOOLS" %}
+
+<h1>Welcome</h1>
+
+<p>This is my webpage</p>
+
+</body>
+</html>  -->
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="{% static 'myglobal.css' %}">
+<body>
+
+{% for x in fruits %}
+  <h1>{{ x }}</h1>
+{% endfor %}
+
+</body>
+</html>

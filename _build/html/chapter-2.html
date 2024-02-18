@@ -57,9 +57,12 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chapter-2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="HTTP Tutorials" href="chapter-3.html" />
     <link rel="prev" title="Flask Tutorials" href="chapter-1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,7 +180,8 @@
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="chapter-1.html">Flask Tutorials</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Django Tutorials</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Django Tutorials</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="chapter-3.html"><strong><code class="docutils literal notranslate"><span class="pre">HTTP</span></code> Tutorials</strong></a></li>
 </ul>
 
     </div>
@@ -350,7 +354,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -366,6 +372,50 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-dnango">What is <code class="docutils literal notranslate"><span class="pre">Dnango</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-django-work">How does <code class="docutils literal notranslate"><span class="pre">Django</span></code> work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view"><code class="docutils literal notranslate"><span class="pre">View</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template"><code class="docutils literal notranslate"><span class="pre">Template</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urls"><code class="docutils literal notranslate"><span class="pre">URL</span></code>s</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-the-django-web-application-working">How is the Django web application working?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#django-project"><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Project</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-name-examples">Project name examples:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#django-apps"><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">App</span></code>s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-app">What is an App?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#app-name-examples">App name examples:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate"><strong>Migrate</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-must-run-the-command-to-actually-create-the-table-in-the-db">We must run the command to actually create the <code class="docutils literal notranslate"><span class="pre">table</span></code> in the <code class="docutils literal notranslate"><span class="pre">DB</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-sql"><strong>View SQL</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-records"><strong>Add Records</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-records"><strong>Add Multiple Records</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-records"><strong>Update Records</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-records"><strong>Delete Records</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>…</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orm-object-relational-mapper"><code class="docutils literal notranslate"><span class="pre">ORM</span></code> (Object Relational Mapper)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querysets"><code class="docutils literal notranslate"><span class="pre">QuerySets</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-development-run-server-locally-on-your-computer"><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">development</span></code> (<strong>run server locally on your computer</strong>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-production-deployed-web-server-online"><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">production</span></code> (<strong>Deployed web-server online</strong>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql"><code class="docutils literal notranslate"><span class="pre">PostgreSQL</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pssycopg2-package">Install <code class="docutils literal notranslate"><span class="pre">pssycopg2</span></code> package</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-deploy-rightarrow-aws-amazon-web-services">Where to Deploy? <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">AWS</span></code> (Amazon Web Services)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-rds-service">Add the <code class="docutils literal notranslate"><span class="pre">RDS</span></code> Service</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -375,8 +425,237 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="django-tutorials">
-<h1>Django Tutorials<a class="headerlink" href="#django-tutorials" title="Link to this heading">#</a></h1>
+  <hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="django-tutorials">
+<h1><strong>Django Tutorials</strong><a class="headerlink" href="#django-tutorials" title="Link to this heading">#</a></h1>
+<hr class="docutils" />
+<section id="what-is-dnango">
+<h2>What is <code class="docutils literal notranslate"><span class="pre">Dnango</span></code>?<a class="headerlink" href="#what-is-dnango" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Django</span></code> is a <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">Framework</span></code> that makes it easier to create <code class="docutils literal notranslate"><span class="pre">web-site</span></code>s using <code class="docutils literal notranslate"><span class="pre">Python</span></code></p></li>
+<li><p>It takes care of the difficult stuff so that you can concentrate on building your <code class="docutils literal notranslate"><span class="pre">web</span> <span class="pre">applications</span></code></p></li>
+</ul>
+</section>
+<section id="how-does-django-work">
+<h2>How does <code class="docutils literal notranslate"><span class="pre">Django</span></code> work?<a class="headerlink" href="#how-does-django-work" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Django</span></code> follows the <code class="docutils literal notranslate"><span class="pre">MVT</span></code> design pattern (<code class="docutils literal notranslate"><span class="pre">Model</span> <span class="pre">View</span> <span class="pre">Template</span></code>)</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">Model</span></code> - the data you want to present, usually data from a database (<code class="docutils literal notranslate"><span class="pre">DB</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">View</span></code> - a request hanlder that returns the relevant template and content, based on the request from <code class="docutils literal notranslate"><span class="pre">user</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Template</span></code> - a text file (<code class="docutils literal notranslate"><span class="pre">HTML</span></code>) containing the layout of the web page, with logic on how to display the data</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="model">
+<h2><code class="docutils literal notranslate"><span class="pre">Model</span></code><a class="headerlink" href="#model" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The model provide data from the <code class="docutils literal notranslate"><span class="pre">DB</span></code> (a <code class="docutils literal notranslate"><span class="pre">table</span></code> in your <code class="docutils literal notranslate"><span class="pre">DB</span></code>)</p></li>
+<li><p>Technique - Object Relational Mapping (<code class="docutils literal notranslate"><span class="pre">ORM</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DB</span></code> - <code class="docutils literal notranslate"><span class="pre">SQL</span></code></p></li>
+<li><p><span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">models.py</span></code> - file name</p></li>
+</ul>
+</section>
+<section id="view">
+<h2><code class="docutils literal notranslate"><span class="pre">View</span></code><a class="headerlink" href="#view" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A <strong>view</strong> is a function or methods that takes <code class="docutils literal notranslate"><span class="pre">http</span></code> requests as arguments, imports the relevant model(s), and finds out what data to send to the template, and return the final result</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">view.py</span></code> - file name</p></li>
+</ul>
+</section>
+<section id="template">
+<h2><code class="docutils literal notranslate"><span class="pre">Template</span></code><a class="headerlink" href="#template" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>A file where you describe how the result should be represented</p></li>
+<li><p>Usually, <code class="docutils literal notranslate"><span class="pre">HTML</span></code> code describing the layout of a web page</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Django</span></code> uses standard <code class="docutils literal notranslate"><span class="pre">HTML</span></code> to describe the layout, but uses <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">tag</span></code>s to add <code class="docutils literal notranslate"><span class="pre">logic</span></code></p></li>
+</ul>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>My Homepage<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>My name is {{ firstname }}.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">templates</span></code> - folder name</p></li>
+</ul>
+</section>
+<section id="urls">
+<h2><code class="docutils literal notranslate"><span class="pre">URL</span></code>s<a class="headerlink" href="#urls" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>When a user requests a URL, Django decides which <code class="docutils literal notranslate"><span class="pre">view</span></code> it will sent to do</p></li>
+<li><p><span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">urls.py</span></code> - file name</p></li>
+</ul>
+</section>
+<section id="how-is-the-django-web-application-working">
+<h2>How is the Django web application working?<a class="headerlink" href="#how-is-the-django-web-application-working" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Django receives the URL, checks the <code class="docutils literal notranslate"><span class="pre">urls.py</span></code> file, and calls the view that matches the URL</p></li>
+<li><p>The view, located in <code class="docutils literal notranslate"><span class="pre">view.py</span></code>, checks for relevant models</p></li>
+<li><p>The models are imported from the <code class="docutils literal notranslate"><span class="pre">models.py</span></code> file</p></li>
+<li><p>The view then sends the data to a specified template in the <code class="docutils literal notranslate"><span class="pre">template</span></code> folder</p></li>
+<li><p>The template contains HTML and Django tags, and with the data it returns finished HTML content back to the browser</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="django-project">
+<h2><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Project</span></code><a class="headerlink" href="#django-project" title="Link to this heading">#</a></h2>
+<section id="project-name-examples">
+<h3>Project name examples:<a class="headerlink" href="#project-name-examples" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">personal_portfolio</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">my_tennis_club</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="django-apps">
+<h2><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">App</span></code>s<a class="headerlink" href="#django-apps" title="Link to this heading">#</a></h2>
+<section id="what-is-an-app">
+<h3>What is an App?<a class="headerlink" href="#what-is-an-app" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A web application that has specific meaning in your project, like a home page, a contact form,  or a members database</p></li>
+</ul>
+</section>
+<section id="app-name-examples">
+<h3>App name examples:<a class="headerlink" href="#app-name-examples" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pages</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">projects</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">members</span></code></p></li>
+</ol>
+</section>
+</section>
+<section id="migrate">
+<h2><strong>Migrate</strong><a class="headerlink" href="#migrate" title="Link to this heading">#</a></h2>
+<section id="we-must-run-the-command-to-actually-create-the-table-in-the-db">
+<h3>We must run the command to actually create the <code class="docutils literal notranslate"><span class="pre">table</span></code> in the <code class="docutils literal notranslate"><span class="pre">DB</span></code><a class="headerlink" href="#we-must-run-the-command-to-actually-create-the-table-in-the-db" title="Link to this heading">#</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Unix/Mac
+<span class="go">python manage.py makemigrations &lt;Django-app-name&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python manage.py migrate</span>
+</pre></div>
+</div>
+<p>Now you have a <code class="docutils literal notranslate"><span class="pre">Model</span></code> table in your <code class="docutils literal notranslate"><span class="pre">DB</span></code></p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="view-sql">
+<h2><strong>View SQL</strong><a class="headerlink" href="#view-sql" title="Link to this heading">#</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python manage.py sqlmigrate &lt;app-name&gt; &lt;migrate-number&gt;</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python manage.py sqlmigrate members 0001</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="add-records">
+<h2><strong>Add Records</strong><a class="headerlink" href="#add-records" title="Link to this heading">#</a></h2>
+<p>We will use the Python interpreter (<code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">Shell</span></code>) to add some members to it</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python manage.py shell</span>
+</pre></div>
+</div>
+<p>In the <code class="docutils literal notranslate"><span class="pre">Python</span> <span class="pre">Shell</span></code> write the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from members.models import Member</span>
+<span class="go">Member.objects.all()</span>
+<span class="go">member = Member(firstname=&#39;Emil&#39;, lastname=&#39;Refsnes&#39;)</span>
+<span class="go">member.save()</span>
+<span class="go">Member.objects.all().values()</span>
+</pre></div>
+</div>
+</section>
+<section id="add-multiple-records">
+<h2><strong>Add Multiple Records</strong><a class="headerlink" href="#add-multiple-records" title="Link to this heading">#</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">member1 = Member(firstname=&#39;Tobias&#39;, lastname=&#39;Refsnes&#39;)</span>
+<span class="go">member2 = Member(firstname=&#39;Linus&#39;, lastname=&#39;Refsnes&#39;)</span>
+<span class="go">member3 = Member(firstname=&#39;Lene&#39;, lastname=&#39;Refsnes&#39;)</span>
+<span class="go">member4 = Member(firstname=&#39;Stale&#39;, lastname=&#39;Refsnes&#39;)</span>
+<span class="go">member5 = Member(firstname=&#39;Jane&#39;, lastname=&#39;Doe&#39;)</span>
+<span class="go">members_list = [member1, member2, member3, member4, member5]</span>
+<span class="go">for x in members_list:</span>
+<span class="go">   x.save()</span>
+<span class="go">Member.objects.all().values()</span>
+</pre></div>
+</div>
+</section>
+<section id="update-records">
+<h2><strong>Update Records</strong><a class="headerlink" href="#update-records" title="Link to this heading">#</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from members.models import Member</span>
+<span class="go">x = Member.objects.all()[4]</span>
+
+<span class="go">x.firstname</span>
+
+<span class="gp"># </span>change<span class="w"> </span>the<span class="w"> </span>values<span class="w"> </span>of<span class="w"> </span>this<span class="w"> </span>record
+<span class="go">x.firstname = &quot;Stalikken&quot;</span>
+<span class="go">x.save()</span>
+
+<span class="gp"># </span>Check<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span><span class="k">if</span><span class="w"> </span>the<span class="w"> </span>Member<span class="w"> </span>table<span class="w"> </span>got<span class="w"> </span>updated
+<span class="go">Member.objects.all().values()</span>
+</pre></div>
+</div>
+</section>
+<section id="delete-records">
+<h2><strong>Delete Records</strong><a class="headerlink" href="#delete-records" title="Link to this heading">#</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from members.models import Member</span>
+<span class="go">x = Member.objects.all()[5]</span>
+
+<span class="go">x.firstname</span>
+
+<span class="go">x.delete()</span>
+
+<span class="go">Member.objects.all().values()</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="id1">
+<h2><strong>…</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="orm-object-relational-mapper">
+<h2><code class="docutils literal notranslate"><span class="pre">ORM</span></code> (Object Relational Mapper)<a class="headerlink" href="#orm-object-relational-mapper" title="Link to this heading">#</a></h2>
+</section>
+<section id="querysets">
+<h2><code class="docutils literal notranslate"><span class="pre">QuerySets</span></code><a class="headerlink" href="#querysets" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Extract, filter, and sort data from database (<code class="docutils literal notranslate"><span class="pre">DB</span></code>)</p></li>
+</ul>
+</section>
+<section id="in-development-run-server-locally-on-your-computer">
+<h2><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">development</span></code> (<strong>run server locally on your computer</strong>)<a class="headerlink" href="#in-development-run-server-locally-on-your-computer" title="Link to this heading">#</a></h2>
+</section>
+<section id="in-production-deployed-web-server-online">
+<h2><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">production</span></code> (<strong>Deployed web-server online</strong>)<a class="headerlink" href="#in-production-deployed-web-server-online" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="postgresql">
+<h2><code class="docutils literal notranslate"><span class="pre">PostgreSQL</span></code><a class="headerlink" href="#postgresql" title="Link to this heading">#</a></h2>
+<section id="install-pssycopg2-package">
+<h3>Install <code class="docutils literal notranslate"><span class="pre">pssycopg2</span></code> package<a class="headerlink" href="#install-pssycopg2-package" title="Link to this heading">#</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install psycopg2-binary</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="where-to-deploy-rightarrow-aws-amazon-web-services">
+<h2>Where to Deploy? <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">AWS</span></code> (Amazon Web Services)<a class="headerlink" href="#where-to-deploy-rightarrow-aws-amazon-web-services" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>offer a free solution that can <code class="docutils literal notranslate"><span class="pre">host</span></code> both <code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">projects</span></code> and      <code class="docutils literal notranslate"><span class="pre">PostgreSQL</span> <span class="pre">databases</span></code></p></li>
+</ul>
+</section>
+<section id="add-the-rds-service">
+<h2>Add the <code class="docutils literal notranslate"><span class="pre">RDS</span></code> Service<a class="headerlink" href="#add-the-rds-service" title="Link to this heading">#</a></h2>
+</section>
+<hr class="docutils" />
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>W3Schools, <a class="reference external" href="https://www.w3schools.com/django/index.php">Django Tutorial</a></p></li>
+<li><p>Real Python, <a class="reference external" href="https://realpython.com/get-started-with-django-1/#learn-django">Get Started With Django: Build a Portfolio App</a></p></li>
+</ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -418,6 +697,15 @@ document.write(`
         <p class="prev-next-title">Flask Tutorials</p>
       </div>
     </a>
+    <a class="right-next"
+       href="chapter-3.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong><code class="docutils literal notranslate"><span class="pre">HTTP</span></code> Tutorials</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -425,7 +713,56 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-dnango">What is <code class="docutils literal notranslate"><span class="pre">Dnango</span></code>?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-does-django-work">How does <code class="docutils literal notranslate"><span class="pre">Django</span></code> work?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view"><code class="docutils literal notranslate"><span class="pre">View</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#template"><code class="docutils literal notranslate"><span class="pre">Template</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#urls"><code class="docutils literal notranslate"><span class="pre">URL</span></code>s</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-is-the-django-web-application-working">How is the Django web application working?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#django-project"><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">Project</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-name-examples">Project name examples:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#django-apps"><code class="docutils literal notranslate"><span class="pre">Django</span> <span class="pre">App</span></code>s</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-an-app">What is an App?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#app-name-examples">App name examples:</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate"><strong>Migrate</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#we-must-run-the-command-to-actually-create-the-table-in-the-db">We must run the command to actually create the <code class="docutils literal notranslate"><span class="pre">table</span></code> in the <code class="docutils literal notranslate"><span class="pre">DB</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-sql"><strong>View SQL</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-records"><strong>Add Records</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-multiple-records"><strong>Add Multiple Records</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-records"><strong>Update Records</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-records"><strong>Delete Records</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>…</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orm-object-relational-mapper"><code class="docutils literal notranslate"><span class="pre">ORM</span></code> (Object Relational Mapper)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#querysets"><code class="docutils literal notranslate"><span class="pre">QuerySets</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-development-run-server-locally-on-your-computer"><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">development</span></code> (<strong>run server locally on your computer</strong>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#in-production-deployed-web-server-online"><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">production</span></code> (<strong>Deployed web-server online</strong>)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#postgresql"><code class="docutils literal notranslate"><span class="pre">PostgreSQL</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-pssycopg2-package">Install <code class="docutils literal notranslate"><span class="pre">pssycopg2</span></code> package</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#where-to-deploy-rightarrow-aws-amazon-web-services">Where to Deploy? <span class="math notranslate nohighlight">\(\rightarrow\)</span> <code class="docutils literal notranslate"><span class="pre">AWS</span></code> (Amazon Web Services)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-rds-service">Add the <code class="docutils literal notranslate"><span class="pre">RDS</span></code> Service</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
