@@ -7,3 +7,4 @@ urlpatterns = [
     path('members/details/<int:id>', views.details, name='details'),
     path('testing/', views.testing, name='testing'),    
 ]
+# @app.route('/members/details/<int:id>') 

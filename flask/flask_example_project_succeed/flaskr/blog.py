@@ -6,6 +6,8 @@ from flask import render_template
 from flask import request
 from flask import url_for
 from werkzeug.exceptions import abort
+import requests
+import geocoder
 
 from .auth import login_required
 from .db import get_db
@@ -15,6 +17,11 @@ bp = Blueprint("blog", __name__)
 
 @bp.route("/")
 def index():
+    response = requests.get('https://api.ipify.org?format=json')
+    if response.status_code == 200:
+        ip_address = response.json()['ip']
+    city = geocoder.ip(ip_address).city
+
     """Show all the posts, most recent first."""
     db = get_db()
     posts = db.execute(
@@ -22,7 +29,7 @@ def index():
         " FROM post p JOIN user u ON p.author_id = u.id"
         " ORDER BY created DESC"
     ).fetchall()
-    return render_template("blog/index.html", posts=posts)
+    return render_template("blog/index.html", posts=posts, ip=ip_address, city=city)
 
 
 def get_post(id, check_author=True):

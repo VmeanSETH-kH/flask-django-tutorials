@@ -26,9 +26,9 @@ SECRET_KEY = 'django-insecure-lh4#1v17(2ha+3--8@37ijxbnv((+@h!i=q#ly23rk5%uz!&v0
 # DEBUG = True
 
 # ALLOWED_HOSTS = []
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -80,14 +80,20 @@ WSGI_APPLICATION = 'my_tennis_club.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'masteruser',
-        'PASSWORD': 'djangoaws',
-        'HOST': 'w3-django-project.chaoc6w40k3r.ap-southeast-2.rds.amazonaws.com',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'postgres',
+#         'USER': 'masteruser',
+#         'PASSWORD': 'djangoaws',
+#         'HOST': 'w3-django-project.chaoc6w40k3r.ap-southeast-2.rds.amazonaws.com',
+#         'PORT': '5432'
+#     }
+# }
 
 
 # Password validation
